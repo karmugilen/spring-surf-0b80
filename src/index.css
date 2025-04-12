@@ -1,0 +1,111 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 355 85% 57%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Kalam', cursive;
+  }
+}
+
+@layer components {
+  .wave-bg {
+    background: linear-gradient(135deg, #0EA5E9 0%, #3B82F6 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  }
+  
+  .wanted-poster {
+    @apply bg-parchment p-6 rounded-lg border-4 border-strawhat relative overflow-hidden;
+  }
+  
+  .wanted-poster::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50L49.5 49.5M80 80L79.5 79.5M20 20L19.5 19.5M20 80L19.5 79.5M80 20L79.5 19.5' stroke='%23000000' stroke-width='1' fill='none' opacity='0.5'/%3E%3C/svg%3E");
+  }
+  
+  .devil-fruit {
+    @apply rounded-full bg-gradient-to-br relative transform transition-all duration-300 ease-in-out;
+  }
+  
+  .devil-fruit:hover {
+    @apply scale-105 shadow-lg;
+  }
+  
+  .pirate-log {
+    @apply border-l-4 border-gold pl-6 relative;
+  }
+  
+  .pirate-log::before {
+    content: "⚓";
+    @apply absolute -left-4 -top-2 bg-background text-gold font-bold text-2xl;
+  }
+  
+  .den-den-mushi {
+    @apply bg-ocean rounded-3xl p-6 shadow-lg border-t-4 border-gold relative;
+  }
+  
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold text-navy mb-6 relative inline-block;
+  }
+  
+  .section-heading::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-1 bg-strawhat transform -skew-x-12;
+  }
+}
